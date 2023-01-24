@@ -1,7 +1,7 @@
-import _, { forEach } from 'lodash';
+// eslint-disable-next-line
+import _ from 'lodash';
 import './style.css';
 
-const cont = document.getElementById('container');
 const list = document.getElementById('list');
 
 const toDos = [
