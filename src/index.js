@@ -1,19 +1,48 @@
-import _ from 'lodash';
+import _, { forEach } from 'lodash';
 import './style.css';
 
-function component() {
-  const element = document.createElement('div');
+const cont = document.getElementById('container');
+const list = document.getElementById('list');
 
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
- element.classList.add('hello');
+const toDos = [
+  {
+    description: 'Wash car',
+    completed: false,
+  },
 
- const myIcon = new Image();
- myIcon.src = sample;
+  {
+    description: 'Play fifa',
+    completed: false,
+  },
 
- element.appendChild(myIcon);
+  {
+    description: 'Cook',
+    completed: false,
+  },
+];
 
-  return element;
-}
+list.innerHTML = `
+  <article>
+    <h2>Today's todo </h2>
+    <iconify-icon icon="bx:refresh"></iconify-icon>
+  </article>
+  <hr>
+  <form>
+    <input type="text" id="new-todo" class="no-outline" placeholder="Add to your list">
+    <button type="submit" id="add-todo" value><iconify-icon icon="uil:enter"></iconify-icon></button>
+  </form>
+  <hr>
+`;
 
-document.body.appendChild(component());
+toDos.forEach((toDo) => {
+  const listItem = document.createElement('li');
+  listItem.classList.add('task');
+  listItem.innerHTML = ` 
+    <input type="checkbox">
+    <label>${toDo.description}</label>
+    <iconify-icon icon="ph:dots-three-outline-vertical-fill" class="dots"></iconify-icon>
+    <hr>  
+  `;
+
+  list.append(listItem);
+});

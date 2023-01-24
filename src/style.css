@@ -1,7 +1,68 @@
-.hello {
-  color: red;
+body {
+  margin:  0;
+  padding: 0;
 }
 
-body {
-  background-color: bisque;
+#outer-cont {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+}
+
+article, form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 600px;
+  box-shadow: 5px 10px 18px #888888;
+  background-color: lightgray;
+}
+
+#container p {
+  cursor: pointer;
+  margin-top: 0;
+}
+
+#new-todo {
+  width: 90%;
+  border: none;
+  appearance: none;
+  font-style: italic;
+}
+
+.no-outline {
+  outline: none;
+  border: navajowhite !important;
+  background-color: transparent;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+#list {
+  width:  93%;
+  list-style: none;
+  padding: 0 19px;
+  margin-top: 0;
+  background-color: white;
+}
+
+/* .task {
+  background-color: pink;
+  color: green;
+} */
+
+.dots {
+  float: right;
+}
+
+h2 {
+  margin: 10px 0 0;
 }
