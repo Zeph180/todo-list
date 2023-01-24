@@ -8,16 +8,19 @@ const toDos = [
   {
     description: 'Wash car',
     completed: false,
+    index: 1
   },
 
   {
     description: 'Play fifa',
     completed: false,
+    index: 2
   },
 
   {
     description: 'Cook',
     completed: false,
+    index: 3
   },
 ];
 
