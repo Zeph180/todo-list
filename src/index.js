@@ -1,51 +1,48 @@
-// eslint-disable-next-line
-import _ from 'lodash';
+import Task from './modules/crud.js';
 import './style.css';
 
-const list = document.getElementById('list');
+const objTask = new Task();
+const inTask = {};
 
-const toDos = [
-  {
-    description: 'Wash car',
-    completed: false,
-    index: 1,
-  },
+if (localStorage.savedTasks) {
+  objTask.tasks = JSON.parse(localStorage.getItem('savedTasks'));
+}
 
-  {
-    description: 'Play fifa',
-    completed: false,
-    index: 2,
-  },
+const all = document.querySelector('.all');
+const ulElement = document.querySelector('.ulElement');
+const inputElement = document.querySelector('.inputElement');
+const btnCom = document.createElement('button');
+btnCom.innerHTML = 'Clear all completed';
+btnCom.classList.add('btnCom');
 
-  {
-    description: 'Cook',
-    completed: false,
-    index: 3,
-  },
-];
-
-list.innerHTML = `
-  <article>
-    <h2>Today's todo </h2>
-    <iconify-icon icon="bx:refresh"></iconify-icon>
-  </article>
-  <hr>
-  <form>
-    <input type="text" id="new-todo" class="no-outline" placeholder="Add to your list">
-    <button type="submit" id="add-todo" value><iconify-icon icon="uil:enter"></iconify-icon></button>
-  </form>
-  <hr>
-`;
-
-toDos.forEach((toDo) => {
-  const listItem = document.createElement('li');
-  listItem.classList.add('task');
-  listItem.innerHTML = ` 
-    <input type="checkbox">
-    <label>${toDo.description}</label>
-    <iconify-icon icon="ph:dots-three-outline-vertical-fill" class="dots"></iconify-icon>
-    <hr>  
-  `;
-
-  list.append(listItem);
+inputElement.addEventListener('change', () => {
+  inTask.description = inputElement.value;
+  inTask.completed = false;
+  inTask.index = objTask.tasks.length;
+  objTask.addTask(new Task(inTask.description, inTask.completed, inTask.index));
 });
+
+window.addEventListener('keyup', (e) => {
+  if (e.key === 'Enter') {
+    inputElement.value = '';
+  }
+});
+
+btnCom.addEventListener('click', () => {
+  const result = objTask.tasks.filter((task) => task.completed === false);
+  objTask.tasks = result;
+  objTask.populateField();
+  ulElement.innerHTML = '';
+  all.innerHTML = `
+    <div class="title">
+      <p>Today's To Do</p><i class="fas fa-sync-alt"></i>
+    </div>
+    <div class="containerTodo">
+      <ul class='ulElement'></ul>
+    </div>
+  `;
+  all.append(objTask.showTasks(), btnCom);
+});
+
+objTask.showTasks();
+all.append(btnCom);

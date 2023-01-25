@@ -1,69 +1,125 @@
 body {
-  margin: 0;
-  padding: 0;
-}
-
-#outer-cont {
+  background-color: #f6f6f6;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  height: 100vh;
   align-items: center;
+  color: #444;
+  height: 100vh;
+  font-family: 'Times New Roman', Times, serif;
 }
 
-article,
-form {
+input {
+  font-style: italic;
+  border: none;
+  padding: 1em;
+  font-size: 1em;
+  outline: none;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 1em;
+  margin: 0;
+  list-style: none;
+}
+
+.title,
+input,
+li {
+  border-bottom: lightgray solid 1px;
+}
+
+label {
+  margin-left: 0.5em;
+}
+
+.title {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  padding: 1em 1em;
+  margin: 0;
+  box-sizing: border-box;
+  width: 100%;
 }
 
-#container {
+.title > p {
+  margin: 0;
+}
+
+.itemElement {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+}
+
+.iconContainer {
+  display: flex;
   align-items: center;
-  flex-direction: column;
-  width: 600px;
-  box-shadow: 5px 10px 18px #888;
-  background-color: lightgray;
-}
-
-#container p {
+  padding: 0;
+  width: min-content;
   cursor: pointer;
-  margin-top: 0;
 }
 
-#new-todo {
-  width: 90%;
+.checkboxContainer {
+  display: flex;
+}
+
+.all {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 25rem;
+  background-color: #fff;
+  box-shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.76);
+  -webkit-box-shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.76);
+  -moz-box-shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.76);
+}
+
+.containerTodo {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.btnCom {
   border: none;
-  appearance: none;
-  font-style: italic;
+  background-color: #fff;
+  cursor: pointer;
+  align-self: center;
+  margin: 1em;
 }
 
-.no-outline {
+.textInput {
+  font-family: 'Times New Roman', Times, serif;
+  color: #444;
+  display: block;
+  border: none !important;
   outline: none;
-  border: navajowhite !important;
-  background-color: transparent;
+  justify-self: baseline;
+  background: transparent;
   box-shadow: none;
-  overflow: hidden;
+  overflow: auto;
+  font-size: 1.1rem;
+  font-style: normal;
+  resize: none;
+  margin: 0;
+  margin-left: 0.5em;
+  padding: 0;
+  word-wrap: break-word;
+  width: 20rem;
 }
 
-#list {
-  width: 93%;
-  list-style: none;
-  padding: 0 19px;
-  margin-top: 0;
-  background-color: white;
+.hidden {
+  display: none;
 }
 
-/* .task {
-  background-color: pink;
-  color: green;
-} */
-
-.dots {
-  float: right;
-}
-
-h2 {
-  margin: 10px 0 0;
+.editing {
+  background-color: #fffedd;
 }
