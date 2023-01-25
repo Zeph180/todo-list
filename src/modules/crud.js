@@ -7,23 +7,7 @@ const Task = class {
     this.description = description;
     this.completed = completed;
     this.index = index;
-    this.tasks = [
-      {
-        description: 'wash the dogs',
-        completed: false,
-        index: 0,
-      },
-      {
-        description: 'Complete To Do list project',
-        completed: false,
-        index: 1,
-      },
-      {
-        description: 'Comwqsaect',
-        completed: false,
-        index: 2,
-      },
-    ];
+    this.tasks = [];
   }
 
   populateField = () => {
