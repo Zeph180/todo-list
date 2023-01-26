@@ -7,7 +7,18 @@ const Task = class {
     this.description = description;
     this.completed = completed;
     this.index = index;
-    this.tasks = [];
+    this.tasks = [
+      {
+        description: 'wash the dogs',
+        completed: false,
+        index: 0,
+      },
+      {
+        description: 'Complete To Do list project',
+        completed: false,
+        index: 1,
+      },
+    ];
   }
 
   populateField = () => {
@@ -91,7 +102,7 @@ const Task = class {
         }, 150);
       });
 
-      checkbox.addEventListener('click', () => {
+      checkbox.addEventListener('change', () => {
         if (checkbox.checked) {
           label.style.textDecoration = 'line-through';
           task.completed = checkbox.checked;
