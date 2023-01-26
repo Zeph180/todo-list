@@ -102,7 +102,7 @@ const Task = class {
         }, 150);
       });
 
-      checkbox.addEventListener('click', () => {
+      checkbox.addEventListener('change', () => {
         if (checkbox.checked) {
           label.style.textDecoration = 'line-through';
           task.completed = checkbox.checked;
